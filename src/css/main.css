@@ -1,0 +1,12 @@
+﻿
+div.top-nav{
+    height: 60px;
+    background-color: #1ccdff;
+    right:0;
+    left:0;
+    top:0;
+}
+div.top-nav + div {
+    margin-top: 65px;
+    background-color: #0a58ca;
+}
