@@ -1,12 +1,41 @@
-﻿
-div.top-nav{
+﻿:root {
+    --primary-color: #125cbe;
+    --primary-tint-color: #3182ed;
+}
+
+div.top-nav {
     height: 60px;
     background-color: #ffffff;
-    right:0;
-    left:0;
-    top:0;
+    right: 0;
+    left: 0;
+    top: 0;
 }
+
 div.top-nav + div {
     margin-top: 65px;
     background-color: #c8e8a0;
+}
+
+.logo-color {
+    color: var(--primary-color);
+}
+
+.logo-border-color {
+    border-color: var(--primary-color);
+}
+
+.logo-bg-color {
+    background-color: var(--primary-color);
+    color: white;
+
+}
+
+div.menu-container a.menu {
+    transition: all 500ms linear;
+    padding-bottom: 5px;
+}
+
+div.menu-container a.menu:hover, div.menu-container a.menu:focus, div.menu-container a.menu.active{
+    color: var(--primary-tint-color) !important;
+    border-bottom: 2px solid var(--primary-color);
 }
