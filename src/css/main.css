@@ -39,3 +39,21 @@ div.menu-container a.menu:hover, div.menu-container a.menu:focus, div.menu-conta
     color: var(--primary-tint-color) !important;
     border-bottom: 2px solid var(--primary-color);
 }
+
+
+
+/*VIDEO PAGE*/
+    /* Video Section*/
+
+    /* Comment Section*/
+div.comments .comment-title{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+}
+.comment-user-pic{
+    width:4rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: contain;
+}
