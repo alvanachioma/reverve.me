@@ -7,7 +7,7 @@
         setElemBottomOffset();
         window.setTimeout(() =>{
             this.elem.style.transition="bottom 400ms ease-in";
-        }, 200);
+        }, 300);
         
         this.handle = document.querySelector("."+config.handleElementClass);
         this.handle.addEventListener("click", onHandleClicked);
