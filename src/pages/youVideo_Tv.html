@@ -123,23 +123,26 @@
             background-color: #656065;
             border-radius: 100vh;
         }
-        
+
         .slide-down, .slide-up {
             transition: bottom 400ms ease-in;
         }
 
 
         .watcher {
-            display:flex;
-            padding:3rem;
-            
+            display: flex;
+            padding: 3rem;
+            flex-direction: column;
+
         }
-        div.watcher h1.title{
-            font-size:3.8rem;
+
+        div.watcher h1.title {
+            font-size: 3.8rem;
             margin-bottom: 40px;
         }
-        div.watcher h1.title p{
-            color:gray;
+
+        div.watcher h1.title p {
+            color: gray;
             font-size: 1.9rem;
         }
     </style>
@@ -346,29 +349,25 @@
             this.elem = document.getElementsByClassName(config.targetElementClass)[0];
             setElemBottomOffset();
             this.handle = document.getElementsByClassName(config.handleElementClass)[0];
-            this.handle.addEventListener("click", onHandleClicked)
-            console.log("This Is => ", this);
-
+            this.handle.addEventListener("click", onHandleClicked);
         }
 
-        this.setElemBottomOffset = () =>{
-           if(config.isExpanded){
-               this.elem.style.bottom = config.slideUpBottomOffset;
-           }else{
-               this.elem.style.bottom = config.slideDownBottomOffset;
-           }
+        this.setElemBottomOffset = () => {
+            if (config.isExpanded) {
+                this.elem.style.bottom = config.slideUpBottomOffset;
+            } else {
+                this.elem.style.bottom = config.slideDownBottomOffset;
+            }
         }
 
         const onHandleClicked = (evt) => {
-            console.log("Handle Clicked : ", evt);
             const classList = this.elem.classList;
             if (config.isExpanded) {
                 classList.add(config.slideDownClass);
                 classList.remove(config.slideUpClass);
                 this.elem.setAttribute("class", classList.value);
                 config.isExpanded = false;
-            }
-            else{
+            } else {
                 classList.add(config.slideUpClass);
                 classList.remove(config.slideDownClass);
                 this.elem.setAttribute("class", classList.value);
@@ -379,15 +378,16 @@
         }
 
         init();
-    })(window.document, {
-        slideDownClass: "slide-down",
-        slideUpClass: "slide-up",
-        targetElementClass: "video-container",
-        handleElementClass: "drag-handle",
-        slideDownBottomOffset: "-960px",
-        slideUpBottomOffset: "-350px",
-        isExpanded: true
-    });
+    })(window.document,
+        {
+            slideDownClass: "slide-down",
+            slideUpClass: "slide-up",
+            targetElementClass: "video-container",
+            handleElementClass: "drag-handle",
+            slideDownBottomOffset: "-960px",
+            slideUpBottomOffset: "-350px",
+            isExpanded: true
+        });
 </script>
 </body>
 </html>
