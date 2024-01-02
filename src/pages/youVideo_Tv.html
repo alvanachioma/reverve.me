@@ -131,9 +131,13 @@
 
         .watcher {
             display: flex;
-            padding: 3rem;
-            flex-direction: column;
+            justify-content: space-between;
+            flex-direction: row;
+            height: 100vh;
+        }
 
+        div.pad-3 {
+            padding: 3rem;
         }
 
         div.watcher h1.title {
@@ -145,15 +149,37 @@
             color: gray;
             font-size: 1.9rem;
         }
+        div.watcher .form{
+            flex : 2;
+        }
+        .bg-video{
+            flex:1;
+            display:flex;
+            justify-content: end;
+        }
+
+        video.video-player {
+            width: 500px;
+            height: 100%;
+            transform: scale(1.7,2.9);
+        }
     </style>
 </head>
 <body>
-<div class="container">
+<div class="">
     <div class="content">
         <div class="watcher">
-            <h1 class="title">Get The Best Movies on MinyClip Pro
-                <p>From $6.99 / Month. Get all Exclusive on PayPerView&trade;</p>
-            </h1>
+            <div class="pad-3 form">
+                <h1 class="title">Get The Best Movies on MinyClip Pro
+                    <p>From $6.99 / Month. Get all Exclusive on PayPerView&trade;</p>
+                </h1>
+            </div>
+
+            <div class="bg-video">
+                <video autoplay muted loop class="video-player">
+                    <source src="../assets/videos/bg-video.mp4"  type="video/mp4">
+                </video>
+            </div>
         </div>
         <div class="video-container">
             <div class="drag-handle">
@@ -386,7 +412,7 @@
             handleElementClass: "drag-handle",
             slideDownBottomOffset: "-960px",
             slideUpBottomOffset: "-350px",
-            isExpanded: true
+            isExpanded: false
         });
 </script>
 </body>
