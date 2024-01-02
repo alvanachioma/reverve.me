@@ -5,7 +5,11 @@
         // add the Data-attr
         this.elem = document.getElementsByClassName(config.targetElementClass)[0];
         setElemBottomOffset();
-        this.handle = document.getElementsByClassName(config.handleElementClass)[0];
+        window.setTimeout(() =>{
+            this.elem.style.transition="bottom 400ms ease-in";
+        }, 200);
+        
+        this.handle = document.querySelector("."+config.handleElementClass);
         this.handle.addEventListener("click", onHandleClicked);
     }
 
@@ -18,18 +22,11 @@
     }
 
     const onHandleClicked = (evt) => {
-        const classList = this.elem.classList;
-        if (config.isExpanded) {
-            classList.add(config.slideDownClass);
-            classList.remove(config.slideUpClass);
-            this.elem.setAttribute("class", classList.value);
-            config.isExpanded = false;
-        } else {
-            classList.add(config.slideUpClass);
-            classList.remove(config.slideDownClass);
-            this.elem.setAttribute("class", classList.value);
+        if (config.isExpanded) 
+            config.isExpanded = false; 
+        else 
             config.isExpanded = true;
-        }
+        
         this.setElemBottomOffset();
 
     }
@@ -37,8 +34,6 @@
     init();
 })(window.document,
     {
-        slideDownClass: "slide-down",
-        slideUpClass: "slide-up",
         targetElementClass: "video-container",
         handleElementClass: "drag-handle",
         slideDownBottomOffset: "-960px",

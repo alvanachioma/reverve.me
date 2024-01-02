@@ -112,9 +112,9 @@ div.drag-handle div.handle {
     border-radius: 100vh;
 }
 
-.slide-down, .slide-up {
+/*.slide-down, .slide-up {
     transition: bottom 400ms ease-in;
-}
+}*/
 
 
 .watcher {
