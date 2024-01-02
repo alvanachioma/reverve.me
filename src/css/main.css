@@ -39,3 +39,36 @@ div.menu-container a.menu:hover, div.menu-container a.menu:focus, div.menu-conta
     color: var(--primary-tint-color) !important;
     border-bottom: 2px solid var(--primary-color);
 }
+
+
+
+/*VIDEO PAGE*/
+    /* Video Section*/
+
+    /* Comment Section*/
+div.comments .comment-title{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+}
+.comment-user-pic{
+    width:4rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+input.chi-input{
+    padding: 0.68rem 1rem;
+    border-radius: 10px;
+    border:1px solid rgba(149, 149, 149, 0.81) ;
+    outline: none;
+    width:100%;
+    transition: all 0.4s linear;
+}
+input.chi-input:hover, input.chi-input:focus{
+    box-shadow: 0 0 3px 3px #fbeaea;
+}
+input.chi-input:focus{
+    border:1px solid #f3aede !important;
+}
