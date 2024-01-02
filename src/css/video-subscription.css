@@ -1,4 +1,7 @@
-﻿* {
+﻿
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&family=Rubik+Broken+Fax&family=Rubik+Doodle+Shadow&display=swap');
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -169,7 +172,7 @@ input.form-input, select.form-input{
 }
 
 .subscription-form {
-    width:550px;
+    width:500px;
 }
 .form-entry.button {
     /*display:flex;
@@ -204,4 +207,21 @@ input.form-input, select.form-input{
 
 .form-entry {
     margin-top:30px;
+}
+
+.clock {
+    font-size:6rem;
+    font-family: "Poiret One", "Roboto Flex";
+}
+
+.form-clock {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.clock-layout {
+    height:100%;
+    display:flex;
+    justify-content: center;
+    align-items:center ;
 }

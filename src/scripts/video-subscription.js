@@ -1,6 +1,11 @@
 ﻿;(function (document, config) {
     console.table(config);
-
+    const firstInputElem = document.getElementById("clock");
+    setInterval(() => {
+        firstInputElem.innerText=moment().format("LTS");
+    }, 1000);
+    
+    
     const init = () => {
         // add the Data-attr
         this.elem = document.getElementsByClassName(config.targetElementClass)[0];

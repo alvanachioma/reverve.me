@@ -18,47 +18,55 @@
     <div class="content">
         <div class="watcher">
             <div class="pad-3 form">
+                
+               
                 <h1 class="title">Get The Best Movies on MinyClip Pro
                     <p>From $6.99 / Month. Get all Exclusive on PayPerView&trade;</p>
                 </h1>
                
                 <form role="form" name="frmSubscription">
-                    <div class="subscription-form">
-                    <h3>Let Get you started</h3>
+                    <div class="form-clock">
+                        <div class="subscription-form">
+                            <h3>Let Get you started</h3>
+
+                            <div class="form-entry">
+                                <label for="txtName" >Full Name</label>
+                                <input type="text" class="form-input" id="txtName" placeholder="Surname, First Name">
+                            </div>
+                            <div class="form-entry">
+                                <label for="txtEmail" >Email Address</label>
+                                <input type="email" class="form-input" id="txtEmail" placeholder="Valid Email Address">
+                            </div>
+                            <div class="form-entry">
+                                <label for="cboPackage" >Subscription Plan</label>
+                                <select class="form-input" id="cboPackage" >
+                                    <optgroup label="Pro Package / Month">
+                                        <option>Deluxe Pro $6.99</option>
+                                        <option>Family Extended Pro $16.99</option>
+                                        <option>Ara Extended Pro $56.99</option>
+                                    </optgroup>
+                                    <optgroup label="Basic Package / Month">
+                                        <option selected>Single User $2.99</option>
+                                        <option >Multi Device Basic $4.99</option>
+                                        <option>Aka-gum Extended Pro $8.99</option>
+                                    </optgroup>
+                                    <option >Village Setup From $0.56</option>
+
+                                </select>
+                            </div>
+
+                            <div class="form-entry button">
+                                <button class="">Start Subscription</button>
+                            </div>
+
+
+
+                        </div>
+                        <div class="clock-layout">
+                            <p class="clock" id="clock">00:00:00</p>
+                        </div> 
+                    </div>
                     
-                    <div class="form-entry">
-                        <label for="txtName" >Full Name</label>
-                        <input type="text" class="form-input" id="txtName" placeholder="Surname, First Name">
-                    </div>
-                    <div class="form-entry">
-                        <label for="txtEmail" >Email Address</label>
-                        <input type="email" class="form-input" id="txtEmail" placeholder="Valid Email Address">
-                    </div>
-                    <div class="form-entry">
-                        <label for="cboPackage" >Subscription Plan</label>
-                        <select class="form-input" id="cboPackage" >
-                            <optgroup label="Pro Package / Month">
-                                <option>Deluxe Pro $6.99</option>
-                                <option>Family Extended Pro $16.99</option>
-                                <option>Ara Extended Pro $56.99</option>
-                            </optgroup>
-                            <optgroup label="Basic Package / Month">
-                                <option selected>Single User $2.99</option>
-                                <option >Multi Device Basic $4.99</option>
-                                <option>Aka-gum Extended Pro $8.99</option>
-                            </optgroup>
-                            <option >Village Setup From $0.56</option>
-                            
-                        </select>
-                    </div>
-                    
-                    <div class="form-entry button">
-                        <button class="">Start Subscription</button>
-                    </div>
-
-
-
-                </div>
                 </form>
             </div>
 
@@ -252,6 +260,8 @@
         </div>
     </div>
 </div>
+
+<script src="../scripts/moment.min.js"></script>
 <script src="../scripts/video-subscription.js"></script>
 </body>
 </html>
