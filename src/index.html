@@ -42,10 +42,216 @@
 
 </div>
 <div class="container ">
-    <h1>Context 1</h1>
-    <h1>Context 2</h1>
-    <h1>Context 3</h1>
+    <h1>Testing with Js</h1>
+    <div class="p-md-5 p-2">
+        <p class="lead mb-3">Get News Update on all Channels</p>
+        <button id="btnFollow" class="btn btn-lg btn-primary">{{Dynamic Caption}}</button>
+    </div>
 </div>
+<script>
+    (function (window, doc) {
 
+
+        const asom = {
+            apps: {
+                jsTest: {
+                    init: function () {
+                        const subscriptionLabel = "Subscribe to News Letter";
+                        let btnCaption = subscriptionLabel;
+                        let isSubscribed = false;
+                        const btnId = "btnFollow";
+                        const btn = doc.getElementById(btnId);
+                        let pElem = doc.createElement("p");
+
+                        function handleSubscription() {
+
+                            btnCaption = isSubscribed ? "Click to UnSubscribe" : subscriptionLabel;
+                            btn.innerHTML = btnCaption;
+                            pElem.innerText = "is Subscribed variable => " + isSubscribed;
+                        }
+
+                        function appendSubscriptionFlag() {
+
+                            pElem.className = "text-danger font-weight-bold mt-3";
+                            btn.after(pElem);
+
+                        }
+
+                        btn.addEventListener("click", (evt) => {
+                            isSubscribed = !isSubscribed;
+                            handleSubscription()
+                        });
+                        handleSubscription();
+                        appendSubscriptionFlag();
+                    }
+                },
+                calculators: {
+                    binaryCalculator: function () {
+                        function quotient(num, divisor) {
+                            return (num - (num % divisor)) / divisor;
+                        }
+
+                        return {
+                            base10ToBinary: function (num) {
+                                const numberBase = 2;
+                                let result = "";
+                                /*
+                                *  num = 10
+                                *  10 / 2 = 5 R 0
+                                *  5 / 2  = 2 R 1
+                                *  2 / 2  = 1 R 0
+                                *  1 / 2  = 0 R 1
+                                * */
+                                let x = num;
+                                do {
+                                    result = (x % numberBase) + result;
+                                    x = quotient(x, numberBase);
+                                }
+                                while (x > 0);
+                                return result;
+                            },
+                            base10ToN: function (num, baseN) {
+                                const numberBase = baseN;
+                                if (baseN < 2 || baseN > 16) throw `${baseN} is an unsupported number base`;
+                                const map = "0123456789ABCDEF";
+                                let result = "";
+                                let x = num;
+                                do {
+                                    result = map[(x % numberBase)] + result;
+                                    x = quotient(x, numberBase);
+                                }
+                                while (x > 0);
+
+                                console.log(`Converting ${num} in base 10 to base ${baseN} is => ${result}`);
+                                return result;
+                            },
+                            fromBinaryToDecimal: function (strNum) {
+                                const numBase = 2;
+                                let result = 0;
+                                /*
+                                *  Convert 1010 to base 10
+                                *  expected result = 10
+                                *  num = 1 0 1 0
+                                * */
+                                // validate input : omitted
+                                const map = "0123456789ABCDEF";
+
+                                // loop
+                                for (let i = 0; i < strNum.length; i++) {
+
+                                    let calcIndex = strNum.length - (i + 1);
+                                    const log = `Index: ${strNum[i]} x ${numBase}^${calcIndex}`;
+                                    console.log(log);
+                                    // find the firstIndex of  each character from our map of known binary values
+                                    // finding the indexOf ("1") = 1 as a number ( this is required for our multiplication)
+                                    result += map.indexOf(strNum[i]) * Math.pow(numBase, calcIndex);
+                                }
+
+                                return result;
+                            },
+                            fromBaseNToDecimal: function (strNum, numBase) {
+
+                                let result = 0;
+                                // validate input : omitted
+                                const map = "0123456789ABCDEF";
+                                for (let i = 0; i < strNum.length; i++) {
+
+                                    let calcIndex = strNum.length - (i + 1);
+                                    result += map.indexOf(strNum[i]) * Math.pow(numBase, calcIndex);
+                                }
+
+                                return result;
+                            },
+                            InBaseNToBaseX: function (strNum, inBaseN, toBaseX) {
+                                // Simple Convert the given Number to base 10
+                                // Then Convert the Result to BaseX
+
+                                //example convert DAD in base 16 (Hexadecimal) to Base 2 (binary)
+                                //Simply convert 'DAD' to base 10
+                                const toBase10 = this.fromBaseNToDecimal(strNum, 16);
+                                const result = this.base10ToN(toBase10, toBaseX);
+
+                                return result;
+                            },
+                            binaryOperation: function (num1, num2, operator) {
+                                if(operator === undefined)
+                                    operator = "+";
+                                // simple convert tot base 10, add the results in base 10
+                                // convert the result back to binary
+                                const d1 = this.fromBinaryToDecimal(num1);
+                                const d2 = this.fromBinaryToDecimal(num2);
+                                let result = "";
+                                switch (operator) {
+                                    case "+":
+                                        result = this.base10ToBinary(d1 + d2);
+                                        break;
+                                    case "-":
+                                        result = this.base10ToBinary(d1 - d2);
+                                        break;
+                                    case "*":
+                                        result = this.base10ToBinary(d1 * d2);
+                                        break;
+                                    case "/":
+                                        if(d2 == 0)
+                                            throw "Can't divide by zero";
+                                        result = this.base10ToBinary(d1 / d2);
+                                        break;
+                                    default:
+                                        throw "Unsupported operator";
+
+                                }
+
+
+                                return result;
+                            }
+                        };
+                    }
+                }
+            }
+        }
+        window.asom = asom;
+
+    })(window, window.document);
+
+    window.asom.apps.jsTest.init();
+    const binCal = asom.apps.calculators.binaryCalculator();
+    const binResult = binCal.base10ToBinary(170);
+    let base10ToBaseN = binCal.base10ToN(3501, 16);
+    base10ToBaseN = binCal.base10ToN(3501, 2);
+    base10ToBaseN = binCal.base10ToN(3501, 8);
+    base10ToBaseN = binCal.base10ToN(3580001, 16);
+    base10ToBaseN = binCal.base10ToN(3580001, 2);
+
+    console.log(binResult);
+    console.log(base10ToBaseN);
+
+    //  fromBaseN to Decimal
+
+    const fromBinaryToBase10 = binCal.fromBinaryToDecimal("1010");  // Expected 10
+    const fromBaseNToBase10 = binCal.fromBaseNToDecimal("DAD", 16);  // Expected 3501
+
+    console.log(fromBinaryToBase10);
+    console.log(fromBaseNToBase10);
+
+    /// InBaseNToBaseX
+    const multipleBase = binCal.InBaseNToBaseX("DAD", 16, 10); // Expected 3501
+    const multipleBase2 = binCal.InBaseNToBaseX("DAD", 16, 2); // Expected 3501
+    console.log(multipleBase);
+    console.log(multipleBase2);
+
+    ///  Addition
+    const add1 = binCal.binaryOperation("1010", "1010","+"); // expected 10100
+    const add2 = binCal.binaryOperation("101000111", "10110","+");
+    const sub1 = binCal.binaryOperation("101000111", "10110","-");
+    const mult1 = binCal.binaryOperation("101000111", "10110","*");
+    const div1 = binCal.binaryOperation("101000111", "10110","/");
+
+    console.log("Binary Addition", add1);
+    console.log("Binary Addition", add2);
+    console.log("Binary Subtraction", sub1);
+    console.log("Binary Multiplication", mult1);
+    console.log("Binary Division", div1);
+
+</script>
 </body>
 </html>
